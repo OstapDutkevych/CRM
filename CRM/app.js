@@ -1,13 +1,18 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
-
+const keys = require('./config/keys')
 
 const authRoutes = require('./routes/auth');
 const analyticsRoutes = require('./routes/analytics');
 const categoryRoutes = require('./routes/category');
 const orderRoutes = require('./routes/order');
 const positionRoutes = require('./routes/position');
+
+mongoose.connect(keys.MONGO_URI,{useUnifiedTopology: true, useNewUrlParser: true,})
+.then(()=>console.log('MongoDB connected'))
+.catch(err => console.log(err))
 
 app.use(require('morgan')('dev'));
 // app.use(bodyParser.urlencoded({extended: true}))
