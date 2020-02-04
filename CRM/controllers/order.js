@@ -1,5 +1,3 @@
-module.exports.getOrder = (req, res)=>{
-}
+module.exports.getOrder = (req, res) => {};
 
-module.exports.createOrder = (req, res)=>{
-}
+module.exports.createOrder = (req, res) => {};
