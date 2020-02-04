@@ -10,16 +10,21 @@ module.exports.login = (req, res) => {
 };
 
 module.exports.register = async (req, res) => {
-  // const user = new User({
-  //   email: req.body.email,
-  //   password: req.body.password
-  // });
-  // user.save().then(() => console.log("user created"));
   const candidate = await User.findOne({ email: req.body.email });
   if (candidate) {
     res.status(409).json({
-      message: "email already exists, try another one"
+      message: "Email already exists, try another one"
     });
   } else {
+    const user = new User({
+      email: req.body.email,
+      password: req.body.password
+    });
+    try {
+      await user.save();
+      res.status(201).json(user);
+    } catch (e) {
+      console.log(e, "error in catch");
+    }
   }
 };
