@@ -7,7 +7,7 @@ const controller = require("../controllers/category");
 router.get(
   "/",
   passport.authenticate("jwt", { session: false }),
-  controller.getCategory
+  controller.getAllCategory
 );
 router.get("/:id", controller.getCategoryById);
 router.delete("/:id", controller.deleteCategoryById);
