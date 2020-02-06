@@ -1,6 +1,6 @@
 const User = require("../models/User");
 
-module.exports.login = (req, res) => {
+module.exports.loginUser = (req, res) => {
   res.status(200).json({
     login: {
       email: req.body.email,
@@ -9,7 +9,7 @@ module.exports.login = (req, res) => {
   });
 };
 
-module.exports.register = async (req, res) => {
+module.exports.registerUser = async (req, res) => {
   const candidate = await User.findOne({ email: req.body.email });
   if (candidate) {
     res.status(409).json({
