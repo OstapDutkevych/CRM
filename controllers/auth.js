@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../models/User");
 const keys = require("../config/keys");
+const errorHandler = require("../utils/errorHandler");
 
 module.exports.loginUser = async (req, res) => {
   const candidate = await User.findOne({ email: req.body.email });
@@ -54,7 +55,7 @@ module.exports.registerUser = async (req, res) => {
       await user.save();
       res.status(201).json(user);
     } catch (e) {
-      console.log(e, "error in catch");
+      errorHandler(res, e);
     }
   }
 };
