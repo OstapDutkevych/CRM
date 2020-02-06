@@ -1,8 +1,14 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
+
 const controller = require("../controllers/category");
 
-router.get("/", controller.getCategory);
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  controller.getCategory
+);
 router.get("/:id", controller.getCategoryById);
 router.delete("/:id", controller.deleteCategoryById);
 router.post("/", controller.createCategory);

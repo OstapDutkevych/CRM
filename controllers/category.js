@@ -1,4 +1,8 @@
-module.exports.getCategory = (req, res) => {};
+module.exports.getCategory = (req, res) => {
+  res.json({
+    messages: "Categories"
+  });
+};
 
 module.exports.getCategoryById = (req, res) => {};
 module.exports.deleteCategoryById = (req, res) => {};
