@@ -34,13 +34,35 @@ module.exports.deleteCategoryById = async (req, res) => {
 };
 
 module.exports.createCategory = async (req, res) => {
+  const category = new CategoryModel({
+    name: req.body.name,
+    imageSrc: req.file ? req.file.path : "",
+    user: req.user.id
+  });
+  console.log(req.user);
   try {
+    await category.save();
+    res.status(201).json(category);
   } catch (e) {
     errorHandler(res, e);
   }
 };
 module.exports.updateCategoryById = async (req, res) => {
+  const updatedCategory = {
+    name: req.body.name
+  };
+  if (req.file) {
+    updatedCategory.imageSrc = req.file.path;
+  }
   try {
+    const category = await CategoryModel.findOneAndUpdate(
+      {
+        _id: req.params.id
+      },
+      { $set: updatedCategory },
+      { new: true }
+    );
+    res.status(200).json(category);
   } catch (e) {
     errorHandler(res, e);
   }
