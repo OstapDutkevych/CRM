@@ -5,7 +5,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index",
+    "start": "node index --poll=2000",
     "server": "nodemon index",
     "client-install": "yarn --cwd ./client install ",
     "client": "yarn --cwd ./client start ",
