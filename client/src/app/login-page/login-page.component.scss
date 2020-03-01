@@ -1,0 +1,52 @@
+@font-face {
+    font-family: Raleway-SemiBold;
+    src: url('../fonts/raleway/Raleway-SemiBold.ttf')
+  }
+  
+@font-face {
+    font-family: Raleway-Black;
+    src: url('../fonts/raleway/Raleway-Black.ttf'); 
+  }
+.wrap-login {
+    width: 450px;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 77px 50px 30px 50px;
+}
+
+
+.wrap-input{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  input {
+    font-family: Raleway-SemiBold;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #686868;
+  
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 55px;
+    border-radius: 3px;
+    margin: 20px 0 20px 0;
+    padding: 0 25px 0 60px;
+  }
+  
+  .login-form-title {
+    font-family: Raleway-Black;
+    font-size: 30px;
+    color: #333333;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+  
+    width: 100%;
+    display: block;
+
+    margin-bottom: 55px;
+  }
